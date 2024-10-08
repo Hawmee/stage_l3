@@ -58,6 +58,7 @@ class RegisteredUserController extends Controller
 
         if ($request->user_type === 'isChefSRB') {
             $user_data['isChefSRB'] = true;
+            $user_data['status'] = true;
         } elseif ($request->user_type === 'isChefUnit') {
             $user_data['isChefUnit'] = true;
         } elseif ($request->user_type === 'isPersCellule') {
@@ -72,6 +73,17 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+
+        if ($user->isChefSRB) {
+            return redirect(route('chefSRB.dashboard', absolute: false));
+        } elseif ($user->isChefUnit) {
+            return redirect(route('chefUnit.dashboard', absolute: false));
+        } elseif ($user->isPersCellule) {
+            return redirect(route('waiting.page', absolute: false));
+        } elseif ($user->isPersSecretariat) {
+            return redirect(route('waiting.page', absolute: false));
+        }
+
+        return redirect(route('home', absolute: false));
     }
 }

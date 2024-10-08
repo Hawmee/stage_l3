@@ -23,31 +23,12 @@ class RedirectIfNotAccepted
         }
 
         if($user && !$user->status){
-            return redirect()->route('WaitingPage');
-        }
-
-        if($user && $user->status){
-            return  $this->redirectToSpecifiedLayout($user);
+            return redirect()->route('waiting.page');
         }
 
         return $next($request);
     }
 
-
-    public function redirectToSpecifiedLayout($user){
-        if($user->isChefSRB){
-            return redirect()->route('chefSRB.Dasboard');
-        }
-        elseif($user->isChefUnit){
-            return redirect()->route('chefUnit.Dasboard');
-        }
-        elseif($user->isPersCellule){
-            return redirect()->route('persCellule.Dasboard');
-        }
-        elseif($user->isPersSecretariat){
-            return redirect()->route('persSecretariat.Dasboard');
-        }
-    }
 }
 
 

@@ -27,6 +27,17 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        $user = Auth::user();
+
+        if ($user->isChefSRB) {
+            return redirect()->route('chefSRB.dashboard');
+        } elseif ($user->isChefUnit) {
+            return redirect()->route('chefUnit.dashboard');
+        } elseif ($user->isPersCellule) {
+            return redirect()->route('persCellule.dashboard');
+        } elseif ($user->isPersSecretariat) {
+            return redirect()->route('persSecretariat.dashboard');
+        }
         return redirect()->intended(route('home', absolute: false));
     }
 

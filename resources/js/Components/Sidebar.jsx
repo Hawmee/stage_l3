@@ -3,7 +3,7 @@ import { CirclePower, LogOut, MoreVertical, TableOfContents, User } from 'lucide
 import { Link } from '@inertiajs/react';
 import React , {useState} from 'react'
 
-function Sidebar({children}) {
+export default function Sidebar({children}) {
 
     const user = usePage().props.auth.user;
     const [showOptions , setShowOptions]  = useState(true);
@@ -39,4 +39,30 @@ function Sidebar({children}) {
   )
 }
 
-export default Sidebar
+export function SideBarLinks({icon , text , href ,active , alert , notifs}){
+
+    const routeHref = href ? route(href) : route('home');
+
+    return(
+        <li >
+            <Link className={`
+                relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors
+                ${
+                    active?
+                        'bg-gray-100 text-blue-400'
+                    :
+                        'hover:bg-gray-200 text-gray-300 text-gray-700 '
+                }
+            `} href={routeHref}>
+                {icon}
+                <span className=' ml-3'>{text}</span>
+                {alert&&
+                    <div className='absolute right-2 px-2 rounded-[10px] bg-blue-400 text-[12px] text-gray-50'>
+                        <p>{notifs}</p>
+                    </div>
+                }
+            </Link>
+        </li>
+    )
+}
+

@@ -23,7 +23,14 @@ Route::middleware(['auth' ])->group(function(){
     Route::prefix('chef-SRB')->middleware([UserTypeCheking::class.":chefSRB"  , RedirectIfNotAccepted::class])
         ->group(function(){
             Route::get('/dashboard',[ChefSRB::class , 'dashboard'])->name('chefSRB.dashboard');
-
+            Route::get('/accounts', [ChefSRB::class,'accounts'])->name('chefSRB.accounts');
+            Route::get('/attestations' , [ChefSRB::class , 'atestations'] )->name('chefSRB.attestations');
+            Route::get('/interns' , [ChefSRB::class , 'interns'])->name('chefSRB.interns');
+            Route::get('/internships' , [ChefSRB::class , 'internships'])->name('chefSRB.internships');
+            Route::get('/interview', [ChefSRB::class , 'interview'])->name('chefSRB.interview');
+            Route::get('/offers' , [ChefSRB::class , 'offers'])->name('chefSRB.offers');
+            Route::get('/profile' , [ChefSRB::class , 'profile'])->name('chefSRB.profile');
+            Route::get('/units' , [ChefSRB::class , 'units'])->name('chefSRB.units');
         });
 
 

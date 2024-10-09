@@ -41,7 +41,7 @@ export default function Authenticated({ header, children }) {
                     <Sidebar>
                         {children[0]}
                     </Sidebar>
-                    <div className="main bg-gray-50 w-full">
+                    <div className="main bg-gray-50 w-full h-full">
                         {children[1]}
                     </div>
                 </div>

@@ -36,7 +36,26 @@ Route::middleware(['auth' ])->group(function(){
 
     Route::prefix('chef-Unit')->middleware(UserTypeCheking::class.":chefUnit")->group(function(){
         Route::get('/dashboard',[ChefSRB::class , 'dasboard'])->name('chefUnit.dashboard');
+        Route::get('/internship',[ChefSRB::class , 'internship'])->name('chefUnit.internship');
+        Route::get('/offers',[ChefSRB::class , 'offer'])->name('chefUnit.offer');
+
     });
+
+    Route::prefix('staff-Cellule')->middleware(UserTypeCheking::class.":persCellule")->group (function(){
+        Route::get('/dashboard',[ChefSRB::class , 'dasboard'])->name('chefUnit.dashboard');
+        Route::get('/internship',[ChefSRB::class , 'internship'])->name('chefUnit.internship');
+        Route::get('/offers',[ChefSRB::class , 'offer'])->name('chefUnit.offer');
+
+    });
+
+
+    Route::prefix('staff-Secretariat')->middleware(UserTypeCheking::class.":persSecretariat")->group(function(){
+        Route::get('/dashboard',[ChefSRB::class , 'dasboard'])->name('chefUnit.dashboard');
+        Route::get('/internship',[ChefSRB::class , 'internship'])->name('chefUnit.internship');
+        Route::get('/offers',[ChefSRB::class , 'offer'])->name('chefUnit.offer');
+
+    });
+
 
 
     Route::get('/waiting', function () {

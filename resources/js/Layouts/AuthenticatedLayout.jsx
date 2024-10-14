@@ -17,7 +17,7 @@ export default function Authenticated({ header, children }) {
     return (
         <>
             <div className='flex flex-col h-screen'>
-                <div className='flex flex-row justify-between py-4 border-b shadow-sm'>
+                <div className='flex flex-row justify-between py-4 border-b-[2px] shadow-sm'>
                     <div className='logo px-4 flex flex-row items-center'>
                         <div>
                             <button className='p-1.5 flex flex-col items-center justify-center rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-600'>
@@ -41,7 +41,7 @@ export default function Authenticated({ header, children }) {
                     <Sidebar>
                         {children[0]}
                     </Sidebar>
-                    <div className="main bg-gray-50 w-full h-full">
+                    <div className="main bg-white w-full h-full">
                         {children[1]}
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react'
-import ChefUnitLayout from '../../Layouts/chefUnitLayout'
+import ChefUnitLayout from '../../../Layouts/chefUnitLayout'
 
-function Dashboard() {
+function Index() {
   return (
     <>
         <ChefUnitLayout>
@@ -11,4 +11,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+export default Index

@@ -1,7 +1,7 @@
 import React from 'react'
-import ChefSRBLayout from '../../Layouts/ChefSRBLayout'
+import ChefSRBLayout from '../../../Layouts/ChefSRBLayout'
 
-function Interview() {
+function Index() {
   return (
     <>
         <ChefSRBLayout>
@@ -11,4 +11,4 @@ function Interview() {
   )
 }
 
-export default Interview
+export default Index

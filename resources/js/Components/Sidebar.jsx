@@ -10,12 +10,12 @@ export default function Sidebar({children}) {
   return (
     <>
         <aside className='h-full'>
-            <nav className='h-full flex flex-col bg-white border-r shadow-sm'>
-                <div className='flex-1 px-3'>
+            <nav className='h-full flex flex-col bg-white border-r-[2px] shadow-sm'>
+                <div className='flex-1 px-3 mt-5'>
                     {children}
                 </div>
-                
-                <div className="UserProfile border-t flex p-3">
+
+                <div className="UserProfile border-t border-gray-300 flex p-3">
                     <div className='bg-gray-600 rounded-[20px] px-1.5 pt-1'>
                         <User color='white'/>
                     </div>
